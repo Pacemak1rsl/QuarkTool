@@ -2556,22 +2556,20 @@ class MainWindow(QMainWindow):
         workbook = Workbook()
         sheet = workbook.active
         sheet.title = "转存分享结果"
-        # headers = ["游戏名", "夸克链接", "文件名称", "状态"]
-        headers = ["文件名称", "夸克链接", "状态"]
+        headers = ["游戏名", "夸克链接", "文件名称", "状态"]
         sheet.append(headers)
         for cell in sheet[1]:
             cell.font = Font(bold=True)
         for row in self.transfer_results:
             sheet.append(
                 [
-                    # row.get("game_name") or "",
+                    row.get("game_name") or "",
                     row.get("file_name") or row.get("title") or "",
                     row.get("auto_share_url") or "",
                     row.get("status") or "",
                 ]
             )
-        # widths = [28, 62, 42, 14]
-        widths = [42, 62, 14]
+        widths = [28, 62, 42, 14]
         for index, width in enumerate(widths, start=1):
             sheet.column_dimensions[chr(64 + index)].width = width
         workbook.save(path)
