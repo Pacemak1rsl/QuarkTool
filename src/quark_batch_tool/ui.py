@@ -2565,8 +2565,8 @@ class MainWindow(QMainWindow):
             sheet.append(
                 [
                     row.get("game_name") or "",
-                    row.get("file_name") or row.get("title") or "",
                     row.get("auto_share_url") or "",
+                    row.get("file_name") or row.get("title") or "",
                     row.get("status") or "",
                 ]
             )
