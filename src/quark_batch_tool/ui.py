@@ -139,7 +139,7 @@ def _app_icon_pixmap(size: int) -> QPixmap:
 
 
 def sidebar_brand_pixmap(size: int) -> QPixmap:
-    for candidate in [Path(r"D:\mCloudDownload\PanTools.exe")]:
+    for candidate in [Path("PanTools.exe"), Path("quark_batch_tool.exe")]:
         try:
             if not candidate.exists():
                 continue
@@ -931,7 +931,8 @@ class MainWindow(QMainWindow):
 
         options = QHBoxLayout()
         options.setSpacing(4)
-        self.transfer_target_folder = QLineEdit("971ba8e22a4f4c7b820ee15a11da1465")
+        self.transfer_target_folder = QLineEdit()
+        self.transfer_target_folder.setPlaceholderText("请输入文件夹FID")
         self.transfer_auto_share = QCheckBox("转存后自动分享")
         self.transfer_delay_min = 5
         self.transfer_delay_max = self._compact_delay_spinbox(6)
